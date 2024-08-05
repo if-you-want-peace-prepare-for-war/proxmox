@@ -18,7 +18,7 @@ EOF
 }
 header_info
 echo -e "Loading..."
-APP="Ubuntu $var_version"
+APP="Ubuntu"
 var_disk="2"
 var_cpu="4"
 var_ram="4096"
