@@ -24,6 +24,7 @@ var_cpu="30"
 var_ram="4096"
 var_os="debian"
 var_version="12"
+DISABLEIPV6="yes"
 variables
 color
 catch_errors

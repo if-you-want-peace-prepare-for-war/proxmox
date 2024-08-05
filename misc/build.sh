@@ -504,15 +504,15 @@ install_script() {
 }
 
 start() {
-  if command -v pveversion >/dev/null 2>&1; then
-    if ! (whiptail --backtitle "Proxmox VE Helper Scripts" --title "${APP} LXC" --yesno "This will create a New ${APP} LXC. Proceed?" 10 58); then
-      clear
-      echo -e "⚠  User exited script \n"
-      exit
-    fi
-    SPINNER_PID=""
+#  if command -v pveversion >/dev/null 2>&1; then
+#    if ! (whiptail --backtitle "Proxmox VE Helper Scripts" --title "${APP} LXC" --yesno "This will create a New ${APP} LXC. Proceed?" 10 58); then
+#      clear
+#      echo -e "⚠  User exited script \n"
+#      exit
+#    fi
+#    SPINNER_PID=""
     install_script
-  fi
+#  fi
 
   if ! command -v pveversion >/dev/null 2>&1; then
     if ! (whiptail --backtitle "Proxmox VE Helper Scripts" --title "${APP} LXC UPDATE" --yesno "Support/Update functions for ${APP} LXC.  Proceed?" 10 58); then
