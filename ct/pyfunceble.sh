@@ -1,29 +1,29 @@
 #!/usr/bin/env bash
-source <(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/build.func)
-# Copyright (c) 2024 My Privacy DNS
-# Author: My Privacy DNS @spirillen
-# License: aGPLv3
-# https://github.com/tteck/Proxmox/raw/main/LICENSE
+source <(curl -s https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/build.sh)
+# Copyright (c) 2021-2024 tteck
+# Author: tteck (tteckster)
+# License: MIT
+# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 function header_info {
 clear
 cat <<"EOF"
-   __  ____                __       
-  / / / / /_  __  ______  / /___  __
- / / / / __ \/ / / / __ \/ __/ / / /
-/ /_/ / /_/ / /_/ / / / / /_/ /_/ / 
-\____/_.___/\__,_/_/ /_/\__/\__,_/  
- 
+    ____       __    _
+   / __ \___  / /_  (_)___  ____
+  / / / / _ \/ __ \/ / __ `/ __ \
+ / /_/ /  __/ /_/ / / /_/ / / / /
+/_____/\___/_.___/_/\__,_/_/ /_/
+
 EOF
 }
 header_info
 echo -e "Loading..."
-APP="Ubuntu"
-var_disk="2"
+APP="Debian"
+var_disk="3"
 var_cpu="30"
 var_ram="4096"
-var_os="ubuntu"
-var_version="24.04"
+var_os="debian"
+var_version="12"
 variables
 color
 catch_errors
@@ -32,7 +32,7 @@ function default_settings() {
   CT_TYPE="1"
   PW=""
   CT_ID=$NEXTID
-  HN=$NSAPP
+  HN=$NSAPP-$NEXTID
   DISK_SIZE="$var_disk"
   CORE_COUNT="$var_cpu"
   RAM_SIZE="$var_ram"

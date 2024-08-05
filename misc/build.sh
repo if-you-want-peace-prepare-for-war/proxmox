@@ -136,8 +136,11 @@ echo_default() {
   echo -e "${DGN}Using Root Password: ${BGN}Automatic Login${CL}"
   echo -e "${DGN}Using Container ID: ${BGN}$NEXTID${CL}"
   echo -e "${DGN}Using Hostname: ${BGN}$NSAPP${CL}"
+  # shellcheck disable=SC2154
   echo -e "${DGN}Using Disk Size: ${BGN}$var_disk${CL}${DGN}GB${CL}"
+  # shellcheck disable=SC2154
   echo -e "${DGN}Allocated Cores ${BGN}$var_cpu${CL}"
+  # shellcheck disable=SC2154
   echo -e "${DGN}Allocated Ram ${BGN}$var_ram${CL}"
   echo -e "${DGN}Using Bridge: ${BGN}vmbr0${CL}"
   echo -e "${DGN}Using Static IP Address: ${BGN}dhcp${CL}"
@@ -201,7 +204,6 @@ advanced_settings() {
     var_version=""
     while [ -z "$var_version" ]; do
       if var_version=$(whiptail --backtitle "Proxmox VE Helper Scripts" --title "UBUNTU VERSION" --radiolist "Choose Version" 10 58 3 \
-        "20.04" "Focal" OFF \
         "22.04" "Jammy" OFF \
         "24.04" "Noble" OFF \
         3>&1 1>&2 2>&3); then
@@ -233,8 +235,8 @@ advanced_settings() {
       if [[ ! -z "$PW1" ]]; then
         if [[ "$PW1" == *" "* ]]; then
           whiptail --msgbox "Password cannot contain spaces. Please try again." 8 58
-        elif [ ${#PW1} -lt 5 ]; then
-          whiptail --msgbox "Password must be at least 5 characters long. Please try again." 8 58
+        elif [ ${#PW1} -lt 7 ]; then
+          whiptail --msgbox "Password must be at least 7 characters long. Please try again." 8 58
         else
           if PW2=$(whiptail --backtitle "Proxmox VE Helper Scripts" --passwordbox "\nVerify Root Password" 9 58 --title "PASSWORD VERIFICATION" 3>&1 1>&2 2>&3); then
             if [[ "$PW1" == "$PW2" ]]; then
@@ -275,7 +277,7 @@ advanced_settings() {
     if [ -z "$CT_NAME" ]; then
       HN="$NSAPP"
     else
-      HN=$(echo ${CT_NAME,,} | tr -d ' ')
+      HN=$(echo ${CT_NAME,,}-${NEXTID,,} | tr -d ' ')
     fi
     echo -e "${DGN}Using Hostname: ${BGN}$HN${CL}"
   else
@@ -490,15 +492,15 @@ install_script() {
   NEXTID=$(pvesh get /cluster/nextid)
   timezone=$(cat /etc/timezone)
   header_info
-  if (whiptail --backtitle "Proxmox VE Helper Scripts" --title "SETTINGS" --yesno "Use Default Settings?" --no-button Advanced 10 58); then
-    header_info
-    echo -e "${BL}Using Default Settings${CL}"
+#  if (whiptail --backtitle "Proxmox VE Helper Scripts" --title "SETTINGS" --yesno "Use Default Settings?" --no-button Advanced 10 58); then
+#    header_info
+#    echo -e "${BL}Using Default Settings${CL}"
     default_settings
-  else
-    header_info
-    echo -e "${RD}Using Advanced Settings${CL}"
-    advanced_settings
-  fi
+#  else
+#    header_info
+#    echo -e "${RD}Using Advanced Settings${CL}"
+#    advanced_settings
+#  fi
 }
 
 start() {
@@ -537,9 +539,9 @@ build_container() {
   TEMP_DIR=$(mktemp -d)
   pushd $TEMP_DIR >/dev/null
   if [ "$var_os" == "alpine" ]; then
-    export FUNCTIONS_FILE_PATH="$(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/alpine-install.func)"
+    export FUNCTIONS_FILE_PATH="$(curl -s 'https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/alpine-install.func')"
   else
-    export FUNCTIONS_FILE_PATH="$(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/install.func)"
+    export FUNCTIONS_FILE_PATH="$(curl -s 'https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/install.func')"
   fi
   export CACHER="$APT_CACHER"
   export CACHER_IP="$APT_CACHER_IP"
@@ -569,7 +571,7 @@ build_container() {
     $PW
   "
   # This executes create_lxc.sh and creates the container and .conf file
-  bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/ct/create_lxc.sh)" || exit
+  bash -c "$(wget -qLO - 'https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/ct/create_lxc.sh')" || exit
 
   LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
   if [ "$CT_TYPE" == "0" ]; then
@@ -633,18 +635,20 @@ http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
 EOF'
     pct exec "$CTID" -- ash -c "apk add bash >/dev/null"
   fi
-  lxc-attach -n "$CTID" -- bash -c "$(wget -qLO - https://raw.githubusercontent.com/tteck/Proxmox/main/install/$var_install.sh)" || exit
+  lxc-attach -n "$CTID" -- bash -c "$(wget -qLO - https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/install/$var_install.sh)" || exit
 
 }
 
 # This function sets the description of the container.
 description() {
+  # shellcheck disable=SC2034
   IP=$(pct exec "$CTID" ip a s dev eth0 | awk '/inet / {print $2}' | cut -d/ -f1)
-  pct set "$CTID" -description "<div align='center'><a href='https://Helper-Scripts.com' target='_blank' rel='noopener noreferrer'><img src='https://raw.githubusercontent.com/tteck/Proxmox/main/misc/images/logo-81x112.png'/></a>
+  pct set "$CTID" -description "<div align='center'><a href='https://www.mypdns.org/' target='_blank' rel='noopener noreferrer'><img src='https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/images/logo_sm.png'/></a>
 
   # ${APP} LXC
 
-  <a href='https://ko-fi.com/proxmoxhelperscripts'><img src='https://img.shields.io/badge/&#x2615;-Buy me a coffee-blue' /></a>
+  <a href='https://liberapay.com/spirillen/donate'><img src='https://www.mypdns.org/fileproxy/?name=sp_receives_spirillen' /></a>
+  <a href='https://ko-fi.com/X8X37FUGU'><img src='https://github.com/mypdns/matrix/raw/master/.assets/icons/ko-fi.png' /></a>
   </div>"
   if [[ -f /etc/systemd/system/ping-instances.service ]]; then
     systemctl start ping-instances.service
