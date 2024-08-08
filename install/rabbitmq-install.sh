@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
 # Author: tteck
 # Co-Author: MickLesk (Canbiz)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 # Source: https://www.rabbitmq.com/
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
@@ -22,8 +21,7 @@ $STD apt-get install -y \
   curl \
   gnupg   \
   apt-transport-https \
-  make \
-  mc
+  make
 msg_ok "Installed Dependencies"
 
 msg_info "Adding RabbitMQ signing key"

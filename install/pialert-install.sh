@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,6 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get -y install \
   sudo \
-  mc \
   curl \
   apt-utils \
   avahi-utils \
@@ -56,6 +54,10 @@ $STD pip3 install fritzconnection
 $STD pip3 install cryptography
 $STD pip3 install pyunifi
 msg_ok "Installed Python Dependencies"
+
+msg_info "Installing MyPDNS"
+$STD pip install mypdns
+msg_ok
 
 msg_info "Installing Pi.Alert"
 curl -sL https://github.com/leiweibau/Pi.Alert/raw/main/tar/pialert_latest.tar | tar xvf - -C /opt >/dev/null 2>&1

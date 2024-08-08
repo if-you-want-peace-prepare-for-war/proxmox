@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 # Execute within the Proxmox shell
 # bash -c "$(wget -qLO - https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/misc/hw-acceleration.sh)"
 

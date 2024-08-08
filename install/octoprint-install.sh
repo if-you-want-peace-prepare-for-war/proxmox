@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,7 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
+
 $STD apt-get install -y git
 $STD apt-get install -y libyaml-dev
 $STD apt-get install -y build-essential
@@ -28,6 +27,10 @@ $STD apt-get install -y \
   python3-dev \
   python3-pip \
   python3-venv
+
+msg_info "Installing MyPDNS"
+$STD pip install mypdns
+msg_ok
 
 $STD apt-get install -y python3-setuptools
 rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED

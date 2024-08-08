@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/build.sh)
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 function header_info {
 clear
@@ -20,7 +19,7 @@ header_info
 echo -e "Loading..."
 APP="Pocketbase"
 var_disk="8"
-var_cpu="1"
+var_cpu="2"
 var_ram="512"
 var_os="debian"
 var_version="12"

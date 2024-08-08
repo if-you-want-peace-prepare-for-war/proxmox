@@ -8,9 +8,111 @@
 <h3 style="text-align: center">All notable changes to this project will be documented in this file.</h3>
 
 > [!WARNING]
-Be cautious of copycat or coat-tailing sites that exploit the project's popularity with potentially malicious intent. Please only trust information from https://tteck.github.io/Proxmox/.
+Be cautious of copycat or coat-tailing sites that exploit the project's popularity with potentially ***malicious***,
+  ***Privacy invasive*** and ***SpyWare*** intent. Please only trust information from
+  https://github.com/if-you-want-peace-prepare-for-war/proxmox as https://tteck.github.io/Proxmox/. are the serve a very
+  insecure portfolio full of riskware.
 
-- All LXC instances created using this repository come pre-installed with Midnight Commander, which is a command-line tool (`mc`) that offers a user-friendly file and directory management interface for the terminal environment.
+## 2024-08-05
+
+- Removed lot of Spyware by Google and CloudFlare
+  - Removed Spyware scripts from repo
+  - frigate deleted for network security violation
+  - cloudflared deleted for network security violation
+  - calibre Google SpyWare
+  - Ubuntu 18.04 EOL
+  - Ubuntu 20.04 EOL/EOS
+  - Adguard, Faked online privacy and security, as the bigTeck are paying to get through their filter + no online
+    security or privacy
+  - Actual Budget LXC, Spyware by CloudFlare
+  - AgentDVR LXC, Spyware by CloudFlare
+  - Alphine docker, Spyware by CloudFlare
+  - Falpine-grafana, Spyware by CloudFlare
+  - turnkey, Spyware by CloudFlare
+  - Nexcloud-vm, Spyware by CloudFlare
+  - owncloud-vm, Spyware by CloudFlare
+  - Alpine-Vaultwarden, none public, Walled Garden
+  - Vaultwarden, none public, Walled Garden
+  - Zigbee2MQTT, Spyware by CloudFlare
+  - bunkerweb, none public, Walled Garden
+  - Caddy, Malicious + Spyware by Alphabet
+  - CasaOS, Spyware by CloudFlare
+  - Change Detection, Spyware by CloudFlare
+  - Channels, Spyware by CloudFlare
+  - CommaFeed, Malicious + Spyware by Alphabet
+  - Cronicle, Spyware by CloudFlare
+  - Dashy, Spyware by CloudFlare
+  - docker, Spyware by CloudFlare
+  - umbrel, Spyware by CloudFlare
+  - podman, Spyware by CloudFlare
+  - runtipi, Spyware by CloudFlare
+  - dockge, Spyware by CloudFlare
+  - homeassistant, Spyware by CloudFlare
+  - nginxproxymanager, Spyware by CloudFlare
+  - paperless-ngx, Spyware by CloudFlare
+  - blocky, Spyware by CloudFlare
+  - emby, trackware
+  - umami, Spyware by CloudFlare
+  - tandoor, Spyware by CloudFlare
+  - flowiseai, Spyware by CloudFlare
+  - homepage, Spyware by CloudFlare
+  - wikijs, Spyware by CloudFlare
+  - node-red, Spyware by CloudFlare
+  - uptimekuma, Spyware by CloudFlare
+  - Shinobi, Spyware by CloudFlare
+  - scrypted, Spyware by CloudFlare
+  - peanut, Spyware by CloudFlare
+  - PairDrop, Spyware by CloudFlare
+  - overseerr, Spyware by CloudFlare
+  - mafl, Spyware by CloudFlare
+  - iobroker, Spyware by CloudFlare
+  - jellyseerr, Spyware by CloudFlare
+  - linkwarden, Spyware by CloudFlare
+  - magicmirror, Spyware by CloudFlare
+  - matterbridge, Spyware by CloudFlare
+  - meshcentral, Spyware by CloudFlare
+  - metube, Spyware by CloudFlare
+  - myspeed, Spyware by CloudFlare
+  - n8n, Spyware by CloudFlare
+  - pingvin, Spyware by CloudFlare
+  - whoogle, Malicious + Spyware by Alphabet
+  - plex, Tracking/Spyware
+  - fenrus, Microsoft tracking
+  - FlareSolverr, Network penetration tool, Spyware by CloudFlare
+  - grafana, none public, Walled Garden
+  - Homebridge, Spyware by CloudFlare
+  - iventoy, CIS (Chinese Intelligent Service)
+  - k0s, Spyware by CloudFlare
+  - lazylibrarian, Malicious + Spyware by Alphabet
+  - Lidarr, Spyware by CloudFlare
+  - mariadb, Spyware by CloudFlare
+  - mongodb, Malicious + Spyware by Alphabet
+  - ntfy, Spyware by CloudFlare
+  - omada, Spyware by CloudFlare
+  - openHAB, Microsoft tracking
+  - petio, Malicious + Spyware by Alphabet, Tracking
+  - Prowlarr, Spyware by CloudFlare
+  - readarr, Spyware by CloudFlare
+  - radarr, Spyware by CloudFlare
+  - rdtclient, Microsoft tracking
+  - RTSPtoWeb, Malicious + Spyware by Alphabet, Tracking
+  - Zoraxy, Malicious + Spyware by Alphabet, Tracking
+  - SFTPGo, Malicious + Spyware by Alphabet, Tracking
+  - Sonarr, Spyware by CloudFlare
+  - Stirling-PDF, Microsoft tracking
+  - Tautulli, useless as Plex is all tracking
+  - Tdarr, Spyware by CloudFlare
+  - Technitium, Microsoft tracking
+  - UniFi, Fastly + Microsoft tracking
+  - Whisparr, Spyware by CloudFlare
+  - Zabbix, Spyware by CloudFlare
+- Cloned from `https://github.com/tteck/Proxmox` to enhance your online Privacy and security.
+- This project now only aim's to protect your online privacy, this includes protecting democracy against politicians
+  and the Big5
+- Full support at https://github.com/orgs/mypdns/discussions
+- Supports PyFunceble
+  -  https://github.com/funilrys/pyfunceble
+  - https://github.com/funilrys
 
 ## 2024-07-26
 

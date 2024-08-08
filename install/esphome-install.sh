@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,7 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
+
 $STD apt-get install -y git
 msg_ok "Installed Dependencies"
 
@@ -28,6 +27,10 @@ $STD apt-get install -y \
   python3-venv
 rm -rf /usr/lib/python3.*/EXTERNALLY-MANAGED
 msg_ok "Updated Python3"
+
+msg_info "Installing My Privacy DNS"
+$STD pip install mypdns
+msg_ok "Installed My Privacy DNS"
 
 msg_info "Installing ESPHome"
 mkdir /root/config

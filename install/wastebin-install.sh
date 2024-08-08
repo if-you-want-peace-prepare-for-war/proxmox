@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
 # Author: tteck
 # Co-Author: MickLesk (Canbiz)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 # Source: https://github.com/matze/wastebin
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
@@ -18,7 +17,6 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Wastebin"

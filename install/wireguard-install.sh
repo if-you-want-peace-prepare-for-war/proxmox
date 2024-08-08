@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,6 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
 $STD apt-get install -y gunicorn
 msg_ok "Installed Dependencies"
 
@@ -31,8 +29,8 @@ subnetClass=24
 ALLOWED_IPS="0.0.0.0/0, ::0/0"
 pivpnMTU=1420
 pivpnPORT=51820
-pivpnDNS1=1.1.1.1
-pivpnDNS2=8.8.8.8
+pivpnDNS1=9.9.9.9
+pivpnDNS2=149.112.112.9
 pivpnHOST=
 pivpnPERSISTENTKEEPALIVE=25
 UNATTUPG=1

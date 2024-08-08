@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,6 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
 msg_ok "Installed Dependencies"
 
 msg_info "Installing SmokePing"
@@ -37,33 +35,22 @@ host = localhost
 + DNS
 menu = DNS latency
 title = DNS latency (ICMP)
-++ Google
-title = Google
-host = 8.8.8.8
-++ Cloudflare
-title = Cloudflare
-host = 1.1.1.1
+++ My Privacy DNS
+title = My Privacy DNS
+host = 54.36.110.62
 ++ Quad9  
 title = Quad9 
 host = 9.9.9.9
-++ OpenDNS
-title = OpenDNS
-host = 208.67.222.222
+++ matrix.rocks
+title = Matrix
+host = 54.36.110.62
 + HTTP
 menu = HTTP latency
 title = HTTP latency (ICMP)
-++ Github
-host = github.com
-++ Discord
-host = discord.com
-++ Google
-host = google.com
-++ Cloudflare
-host = cloudflare.com
-++ Amazon
-host = amazon.com
-++ Netflix
-host = netflix.com
+++ Matrix
+host = matrix.rocks
+++ MyPrivacyDNS
+host = mypdns.org
 EOF
 systemctl restart smokeping
 msg_ok "Installed SmokePing"

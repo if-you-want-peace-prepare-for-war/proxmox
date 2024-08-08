@@ -20,6 +20,16 @@ Be cautious of copycat or coat-tailing sites that exploit the project's populari
 
 These scripts empower users to create a Linux container or virtual machine interactively, providing choices for both simple and advanced configurations. The basic setup adheres to default settings, while the advanced setup gives users the ability to customize these defaults. 
 
+## Usage
+To create a new Proxmox VE LXC Client Container, run the command below in the Proxmox VE Shell.
+To Update Nginx Proxy Manager, run the same command below (or type update) in the LXC Console.
+
+Replace `ct/installscript.sh` with the actual path and script to use for installation.
+
+```bash
+bash -c "$(wget -qLO - https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/master/ct/installscript.sh)"
+```
+
 Options are displayed to users in a dialog box format. Once the user makes their selections, the script collects and validates their input to generate the final configuration for the container or virtual machine.
 <p style="text-align: center">
 Be cautious and thoroughly evaluate scripts and automation tasks obtained from external sources. <a href="https://github.com/if-you-want-peace-prepare-for-war/proxmox/blob/master/CODE-AUDIT.md">Read more</a>

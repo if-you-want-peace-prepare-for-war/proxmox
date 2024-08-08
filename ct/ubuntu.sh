@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/build.sh)
-# Copyright (c) 2024 My Privacy DNS
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
 # Author: My Privacy DNS @spirillen
-# License: aGPLv3
+# License: AGPL-3.0
 # https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/master/LICENSE
 
 function header_info {

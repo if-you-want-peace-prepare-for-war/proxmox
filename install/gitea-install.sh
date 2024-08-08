@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
 # Co-author: Rogue-King
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -18,7 +17,7 @@ msg_info "Installing Dependencies"
 $STD apt-get install -y git
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
+
 $STD apt-get install -y sqlite3
 msg_ok "Installed Dependencies"
 

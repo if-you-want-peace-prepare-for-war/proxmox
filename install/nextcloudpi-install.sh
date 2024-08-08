@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,7 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
+
 msg_ok "Installed Dependencies"
 
 msg_info "Installing NextCloudPi (Patience)"
@@ -24,8 +23,8 @@ $STD apt-get install -y systemd-resolved
 systemctl enable -q --now systemd-resolved
 cat <<'EOF' >/etc/systemd/resolved.conf
 [Resolve]
-DNS=8.8.8.8
-FallbackDNS=8.8.4.4
+DNS=9.9.9.9
+FallbackDNS=149.112.112.9
 EOF
 systemctl restart systemd-resolved
 $STD bash <(curl -fsSL https://raw.githubusercontent.com/nextcloud/nextcloudpi/master/install.sh)

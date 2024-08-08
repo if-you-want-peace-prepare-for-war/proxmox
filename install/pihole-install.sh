@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
+# Author: @spirillen My Privacy DNS
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 
 source /dev/stdin <<< "$FUNCTIONS_FILE_PATH"
 color
@@ -16,7 +15,7 @@ update_os
 msg_info "Installing Dependencies"
 $STD apt-get install -y curl
 $STD apt-get install -y sudo
-$STD apt-get install -y mc
+
 $STD apt-get install -y ufw
 $STD apt-get install -y ntp
 msg_ok "Installed Dependencies"
@@ -25,8 +24,8 @@ msg_info "Installing Pi-hole"
 mkdir -p /etc/pihole/
 cat <<EOF >/etc/pihole/setupVars.conf
 PIHOLE_INTERFACE=eth0
-PIHOLE_DNS_1=8.8.8.8
-PIHOLE_DNS_2=8.8.4.4
+PIHOLE_DNS_1=9.9.9.9
+PIHOLE_DNS_2=149.112.112.9
 QUERY_LOGGING=true
 INSTALL_WEB_SERVER=true
 INSTALL_WEB_INTERFACE=true
@@ -95,7 +94,7 @@ EOF
 edns-packet-max=1232
 EOF
   wget -qO /var/lib/unbound/root.hints https://www.internic.net/domain/named.root
-  sed -i -e 's/PIHOLE_DNS_1=8.8.8.8/PIHOLE_DNS_1=127.0.0.1#5335/' -e 's/PIHOLE_DNS_2=8.8.4.4/#PIHOLE_DNS_2=8.8.4.4/' /etc/pihole/setupVars.conf
+  sed -i -e 's/PIHOLE_DNS_1=9.9.9.9/PIHOLE_DNS_1=127.0.0.1#5335/' -e 's/PIHOLE_DNS_2=149.112.112.9/#PIHOLE_DNS_2=149.112.112.10/' /etc/pihole/setupVars.conf
   systemctl enable -q --now unbound
   systemctl restart pihole-FTL.service
   msg_ok "Installed Unbound"

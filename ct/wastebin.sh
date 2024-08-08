@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/build.sh)
-# Copyright (c) 2021-2024 tteck
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
 # Author: tteck
 # Co-Author: MickLesk (Canbiz)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 # Source: https://github.com/matze/wastebin
 
 
@@ -23,7 +22,7 @@ header_info
 echo -e "Loading..."
 APP="Wastebin"
 var_disk="4"
-var_cpu="1"
+var_cpu="2"
 var_ram="1024"
 var_os="debian"
 var_version="12"

@@ -78,7 +78,7 @@ setting_up_container() {
 network_check() {
   set +e
   trap - ERR
-  if ping -c 1 -W 1 1.1.1.1 &>/dev/null; then msg_ok "Internet Connected"; else
+  if ping -c 1 -W 1 54.36.110.62 &>/dev/null; then msg_ok "Internet Connected"; else
     msg_error "Internet NOT Connected"
     read -r -p "Would you like to continue anyway? <y/N> " prompt
     if [[ "${prompt,,}" =~ ^(y|yes)$ ]]; then

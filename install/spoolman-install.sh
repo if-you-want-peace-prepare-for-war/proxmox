@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2024 tteck
+# Copyright (c) 2024 My Privacy DNS https://www.mypdns.org
 # Author: tteck
 # Co-Author: MickLesk (Canbiz)
-# License: MIT
-# https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
+# License: AGPL-3.0 https://github.com/if-you-want-peace-prepare-for-war/proxmox/raw/main/LICENSE
 # Source: https://github.com/Donkie/Spoolman
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
@@ -23,8 +22,7 @@ $STD apt-get install -y \
   make \
   libpq-dev \
   gpg \
-  ca-certificates \
-  mc
+  ca-certificates
 msg_ok "Installed Dependencies"
 
 msg_info "Installing Python3"
@@ -34,6 +32,10 @@ $STD apt-get install -y \
   python3-wheel \
   python3-pip
 msg_ok "Installed Python3"
+
+msg_info "Installing MyPDNS"
+$STD pip install mypdns
+msg_ok
 
 msg_info "Installing Spoolman"
 cd /opt
