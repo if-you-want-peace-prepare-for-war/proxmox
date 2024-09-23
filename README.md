@@ -1,6 +1,6 @@
 <div style="text-align: center">
   <a href="#">
-    <img src="https://raw.githubusercontent.com/if-you-want-peace-prepare-for-war/proxmox/master/misc/images/logo.png" height="100px" alt="logo" />
+    <img src="https://www.mypdns.org/images/logo.png" height="100px" alt="logo" />
  </a>
 </div>
 <h1 style="text-align: center">Proxmox VE Helper-Scripts</h1>
